@@ -4,6 +4,8 @@ import Spinner from 'react-bootstrap/Spinner';
 import './CSS/Album.css';
 import Button from 'react-bootstrap/Button';
 
+//For Fetching API Data
+
 const Albums = () => {
 	const [albums, setAlbums] = useState([]);
 	useEffect(() => {
@@ -19,6 +21,9 @@ const Albums = () => {
 			}
 		)
 	}
+
+	//For Delete API Call
+
   const deleteUser = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, {
       method: 'DELETE'
@@ -29,6 +34,8 @@ const Albums = () => {
       });
     });
   }
+
+  // For Upadte API Call
 
  const updateUser = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, {
@@ -63,6 +70,8 @@ const Albums = () => {
 			</tr>
 		);
 	});
+	
+	//If API Is Loading That Time Showing A Spinner While API Data Is Fetching
 	const emptyAlbum = (
 		<tr>
 			<td colSpan='4' className='text-center'>
