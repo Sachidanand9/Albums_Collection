@@ -8,11 +8,12 @@ import './CSS/NewAlbum.css';
 
 function Newalbum() {
     const [Id, setId] = useState();
+    const [userId, setUserID] = useState();
     const [title, setTitle] = useState('');
 
     function saveUser(e) {
         e.preventDefault();
-        let data = {Id, title };
+        let data = {Id,userId, title };
         fetch('https://jsonplaceholder.typicode.com/albums', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -38,6 +39,10 @@ function Newalbum() {
                 <Form.Group className="mb-3" controlId="Id">
                     <Form.Label>Id</Form.Label>
                     <Form.Control type="number" placeholder="ID" value={Id} onChange={(e) => { setId(e.target.value) }} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="Title">
+                    <Form.Label>UserID</Form.Label>
+                    <Form.Control type="text" placeholder="UserID" value={userId} onChange={(e) => { setUserID(e.target.value) }} />
                 </Form.Group>
                 <Button variant="primary" type="submit" onClick={saveUser}>
                     Add To Album
